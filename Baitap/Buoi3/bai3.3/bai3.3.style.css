@@ -1,0 +1,13 @@
+div.container {
+    width: 1000px;
+    height: 300px;
+}
+
+div.container h1 {
+    margin-top: 10px;
+    color: green;
+}
+
+div.container form div.form-group input.form-control {
+    width: 400px;
+}

@@ -1,0 +1,7 @@
+div.container h2 {
+  color: green;
+}
+
+div.container button.btn {
+  background-color: rgb(14, 144, 187);
+}

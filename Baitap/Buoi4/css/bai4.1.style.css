@@ -1,0 +1,19 @@
+div.container {
+    margin-top: 20px;
+    width: 1000px;
+    height: auto;
+    border: 1px solid black;
+}
+
+h2 {
+    margin-top: 20px;
+    color: green;
+}
+
+button {
+    margin-left: 48%;
+}
+
+div.err {
+    margin-left: 5px;
+}
