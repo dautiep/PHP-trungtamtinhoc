@@ -15,21 +15,23 @@
       require_once 'Ham.php';
       //Khai báo biến
       $a = '';
-      $b = '';
       $kq = '';
       $err = '';
       if(isset($_POST["submit"])){
         $a_nhap = $_POST["th_soa"];
-        $b_nhap = $_POST["th_sob"];
-        if($a_nhap === '' || $b_nhap === ''){
-          $err = 'Note: Bạn phải nhập đủ số a và b!!';
+        if($a_nhap === ''){
+          $err = 'Note: Bạn phải nhập đủ số a!!';
         }else{
           $a = $_POST["th_soa"];
-          $b = $_POST["th_sob"];
-          if(!is_numeric($a) || !is_numeric($b)){
-            $err = 'Note:a phải là một số!!';
-          }else
-            $kq = tongHaiSo($a, $b);        
+          if(!is_numeric($a)){
+            $err = 'Note:a và b phải là một số!!';
+          }else{
+              if(kt_chanle($a)){
+                $kq = 'a là số chẵn';
+              }else
+                $kq = 'a là số lẻ';
+          }
+            
         }
       }
     ?>
@@ -45,15 +47,11 @@
       </div>
       <div class="contain">Sử dụng hàm trong PHP</div>
       <div class= "form">
-        <h2>Nhập hai số a, b. Tính tổng của hai số đó</h2>
+        <h2>Nhập hai số a. Kiểm tra số a là chẵn hay lẻ</h2>
         <form method="POST"> 
         <div class="form-group">
             <label for="exampleInputEmail1">Số a</label>
             <input type="text" class="form-control" name="th_soa" placeholder="Nhập vào một số" value="<?php echo $a; ?>">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Số b</label>
-            <input type="text" class="form-control" name="th_sob" placeholder="Nhập vào một số" value="<?php echo $b; ?>">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Kết quả</label>

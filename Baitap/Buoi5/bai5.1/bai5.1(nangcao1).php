@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Tính tổng hai số</title>
+    <title>Giải phương trình bậc 2</title>
   </head>
   <body>
     <?php
@@ -16,20 +16,26 @@
       //Khai báo biến
       $a = '';
       $b = '';
+      $c = '';
+      $pt = '';
       $kq = '';
       $err = '';
       if(isset($_POST["submit"])){
         $a_nhap = $_POST["th_soa"];
         $b_nhap = $_POST["th_sob"];
-        if($a_nhap === '' || $b_nhap === ''){
-          $err = 'Note: Bạn phải nhập đủ số a và b!!';
+        $c_nhap = $_POST["th_soc"];
+        if($a_nhap === '' || empty($b_nhap) || empty($c_nhap)){
+          $err = 'Note: Bạn phải nhập đủ số a, b, c!!';
         }else{
           $a = $_POST["th_soa"];
           $b = $_POST["th_sob"];
-          if(!is_numeric($a) || !is_numeric($b)){
-            $err = 'Note:a phải là một số!!';
-          }else
-            $kq = tongHaiSo($a, $b);        
+          $c = $_POST["th_soc"];
+          if(!is_numeric($a) || !is_numeric($b) || !is_numeric($c)){
+            $err = 'Note:a, b và c phải là một số!!';
+          }else{
+              $kq = giai_ptbac2($a, $b, $c, $pt);
+          }
+            
         }
       }
     ?>
@@ -45,7 +51,7 @@
       </div>
       <div class="contain">Sử dụng hàm trong PHP</div>
       <div class= "form">
-        <h2>Nhập hai số a, b. Tính tổng của hai số đó</h2>
+        <h2>Nhập hai số a, b, c. Giải phương trình ax2 + bx + c = 0</h2>
         <form method="POST"> 
         <div class="form-group">
             <label for="exampleInputEmail1">Số a</label>
@@ -54,6 +60,14 @@
         <div class="form-group">
             <label for="exampleInputEmail1">Số b</label>
             <input type="text" class="form-control" name="th_sob" placeholder="Nhập vào một số" value="<?php echo $b; ?>">
+        </div>
+         <div class="form-group">
+            <label for="exampleInputEmail1">Số c</label>
+            <input type="text" class="form-control" name="th_soc" placeholder="Nhập vào một số" value="<?php echo $c; ?>">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Phương trình</label>
+            <input type="text" class="form-control" name="th_pt" readonly="readonly" value="<?php echo $pt; ?>">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Kết quả</label>
