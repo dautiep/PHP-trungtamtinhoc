@@ -47,7 +47,7 @@
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" name="inputEmail" class="form-control" placeholder="Email address">
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" name="inputPassword" class="form-control" placeholder="Password" required>
+                    <input type="password" name="inputPassword" class="form-control" placeholder="Password">
                     <div class="checkbox mb-3">
                         <label>
                             <input type="checkbox" value="remember-me" name="checkRemember"> Remember me
