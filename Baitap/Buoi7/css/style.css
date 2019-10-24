@@ -1,0 +1,51 @@
+div.swap {
+    margin-top: 50px;
+    margin-left: 200px;
+    padding: 10px;
+    width: 800px;
+    border: 1px solid black;
+}
+
+div.header {
+    margin-top: 10px;
+    height: 100px;
+    border: 1px solid cyan;
+}
+
+div.header div.header-left {
+    float: left;
+    padding: 5px;
+}
+
+div.header div.header-right {
+    margin-left: 500px;
+    padding: 5px;
+}
+
+div.header div.header-right h4 {
+    font-size: 28px;
+    color: blue;
+}
+
+div.header div.header-right i {
+    margin-left: 70px;
+}
+
+div.container div.contain {
+    color: deeppink;
+    margin-left: 300px;
+    margin-top: 10px;
+}
+
+div.form {
+    margin-top: 20px;
+}
+
+div.form-group h1 {
+    margin-top: 10px;
+    color: darkcyan;
+}
+
+div.button {
+    margin-left: 330px;
+}

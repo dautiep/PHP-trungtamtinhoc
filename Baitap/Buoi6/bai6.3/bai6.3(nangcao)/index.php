@@ -30,7 +30,7 @@
           $tb = 'Note: Bạn phải nhập đủ mã sản phẩm và số lượng của nó';
         }else{
           //Lưu session
-          $_SESSION["gio_hang"][$masp] = $sl; 
+          $_SESSION["gio_hang"][$masp] = $sl; //1 mảng chứa giá trị số lượng của các sản phẩm với key là mã sản phẩm
           $tb = 'Mua hàng thành công!!';
           
         }
@@ -40,7 +40,7 @@
       if(isset($_POST["th_xem"])){
         if(isset($_SESSION["gio_hang"])){
           $giohang = $_SESSION["gio_hang"];
-          foreach($giohang as $ma => $sl)
+          foreach($giohang as $ma => $sl) //xuất ra key(mã sản phẩm) và giá trị của nó là số lượng sản phẩm cần mua
             $tb .= 'Mã sản phẩm: '.$ma.'  Số lượng mua: '.$sl.'<br>'; 
         }else
           $tb = 'Note: Giỏ hàng trống!!';
@@ -52,7 +52,7 @@
           unset($_SESSION["gio_hang"]);
           $tb = 'Giỏ hàng của bạn trống';
         }else
-          $tb = 'Note: Chưa có gì trong giỏ hàng';
+          $tb = 'Note: Chưa có gì trong giỏ hàng!';
       }
 
        
