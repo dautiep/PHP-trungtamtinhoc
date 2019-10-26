@@ -10,11 +10,31 @@
     <link rel="stylesheet" href="../public/bootstrap-4.3.1/dist/css/custom.css">
     <link rel="stylesheet" href="../css/style.css"> 
 
-    <title>Đọc tệp tin</title>
+    <title>Upload tệp tin</title>
   </head>
   <body>
     <?php
     $tb = '';
+    $mang_kieu_file = array('image/jpeg', 'image/png', 'image/gif', 'image/tif'); //mảng các kiểu định dạng của file hình
+
+    //Kiểm tra khi nhấn vào nút upload file
+    if(isset($_POST['btnUpload'])){
+      $file_upload = $_FILES['th_file'];
+      if($file_upload['name'] == '')
+        $tb = 'Note: Bạn chưa chọn file';
+      else{
+        //kiểm tra size
+        if($file_upload['size'] >= 139000)
+          $tb = 'Note: Kích thước file phải nhỏ hơn 130kb';
+        //kiểm tra type
+        else if(array_search($file_upload['type'], $mang_kieu_file) !== false){
+          move_uploaded_file($file_upload['tmp_name'], 'images/'.$file_upload['name']);
+          $tb = 'Upload file thành công';
+        }
+        else
+          $tb = 'Note: Bạn chỉ được chọn file hình';
+      }
+    }
     ?>
     <div class="swap">
       <!--Phần header-->
@@ -31,7 +51,7 @@
       <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form method="POST">
+                <form enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                         <h1>Upload File: </h1>
                         <label for="exampleInputEmail1">Chọn file:</label>
