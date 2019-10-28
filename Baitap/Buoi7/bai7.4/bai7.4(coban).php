@@ -28,7 +28,7 @@
           $tb = 'Note: Kích thước file phải nhỏ hơn 130kb';
         //kiểm tra type
         else if(array_search($file_upload['type'], $mang_kieu_file) !== false){
-          move_uploaded_file($file_upload['tmp_name'], 'images/'.$file_upload['name']);
+          move_uploaded_file($file_upload['tmp_name'], 'images/'.$file_upload['name']); //chuyển file update vào thư mục image
           $tb = 'Upload file thành công';
         }
         else
