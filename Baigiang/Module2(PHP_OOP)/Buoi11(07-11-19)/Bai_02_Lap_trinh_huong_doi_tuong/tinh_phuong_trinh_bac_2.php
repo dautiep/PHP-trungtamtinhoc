@@ -33,24 +33,20 @@
     </div>
     <?php
         //Khai báo để có thể sử dụng class
-        include("class/class_Hinh_chu_nhat.php");
-        // Khai báo biến
-        $chieu_dai= "";
-        $chieu_rong= "";
-        $dien_tich= 0;
-        $chu_vi= 0;
+        include("class/class_Phuong_trinh_bac_hai.php");
+        $so_a="";
+        $so_b="";
+        $so_c="";
+        $ket_qua=0;
         if(isset($_POST['Th_ket_qua']))
         {
-            // Gán giá trị cho biến từ thể hiện
-            $chieu_dai=$_POST['chieu_dai'];
-            $chieu_rong=$_POST['chieu_rong'];
-            //Khởi tạo class HINH_CHU_NHAT
-            $a = new HINH_CHU_NHAT();
-            
-            //Gọi phương thức tính diện tích, chu vi từ đối tượng
-            $chu_vi = $a->tinhChuVi($chieu_dai, $chieu_rong);
-            $dien_tich = $a->tinhDienTich($chieu_dai, $chieu_rong);
-            
+            $so_a=$_POST['so_a'];
+            $so_b=$_POST['so_b'];
+            $so_c=$_POST['so_c'];
+            //Khởi tạo class PT_BAC_NHAT
+            $ptb2 = new PHUONG_TRINH_BAC_HAI($so_a,$so_b,$so_c);
+            //Gọi phương thức tính phương trình bậc nhất
+            $ket_qua =$ptb2->NGHIEM();
         }
     ?>
     <div class="container">
@@ -58,20 +54,23 @@
             <div class="col-12">
                 <div class="card border">
                     <div class="card-body">
-                        <h3 class="card-title text-success">Tính diện tích, chu vi hình chữ nhật</h3>
+                        <h3 class="card-title text-success">Tính phương trình bậc nhất</h3>
                         <form method="POST">
                             <div class="form-group">
-                                <label for="">Nhập chiều dài </label>
-                                <input type="text" name="chieu_dai" id="" class="form-control" placeholder="" value="<?php echo $chieu_dai?>">
+                                <label for="">Nhập số A </label>
+                                <input type="text" name="so_a" id="" class="form-control" placeholder="" value="<?php echo $so_a?>">
                             </div>
                             <div class="form-group">
-                                <label for="">Nhập chiều rộng </label>
-                                <input type="text" name="chieu_rong" id="" class="form-control" placeholder="" value="<?php echo $chieu_rong?>">
+                                <label for="">Nhập số B </label>
+                                <input type="text" name="so_b" id="" class="form-control" placeholder="" value="<?php echo $so_b?>">
                             </div>
-
                             <div class="form-group">
-                                <label for="">Chu vi: <?php echo $chu_vi?></label> <br>
-                                <label for="">Diện tích: <?php echo $dien_tich?></label>
+                                <label for="">Nhập số C </label>
+                                <input type="text" name="so_c" id="" class="form-control" placeholder="" value="<?php echo $so_c?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Kết quả: <?php echo $ket_qua?></label> 
+        
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-outline-danger" name="Th_ket_qua" >Hiển thị kết quả</button>

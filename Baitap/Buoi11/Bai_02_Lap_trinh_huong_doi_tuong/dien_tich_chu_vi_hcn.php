@@ -33,26 +33,23 @@
     </div>
     <?php
         //Khai báo để có thể sử dụng class
-        include("class/class_Hinh_chu_nhat.php");
-        // Khai báo biến
-        $chieu_dai= "";
-        $chieu_rong= "";
-        $dien_tich= 0;
-        $chu_vi= 0;
-        if(isset($_POST['Th_ket_qua']))
-        {
-            // Gán giá trị cho biến từ thể hiện
+        //interface
+        include("class/interface_Hinh.php");
+        $chieu_dai="";
+        $chieu_rong="";
+        $dien_tich=0;
+        $chu_vi=0;
+        if(isset($_POST['Th_ket_qua'])){
             $chieu_dai=$_POST['chieu_dai'];
             $chieu_rong=$_POST['chieu_rong'];
             //Khởi tạo class HINH_CHU_NHAT
-            $a = new HINH_CHU_NHAT();
-            
-            //Gọi phương thức tính diện tích, chu vi từ đối tượng
-            $chu_vi = $a->tinhChuVi($chieu_dai, $chieu_rong);
-            $dien_tich = $a->tinhDienTich($chieu_dai, $chieu_rong);
-            
+            $hcn = new HINH_CHU_NHAT($chieu_dai,$chieu_rong);
+            //Gọi phương thức tính diện tích, chu vi
+            $dien_tich =$hcn->Dien_tich();
+            $chu_vi = $hcn->Chu_vi();
         }
     ?>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -70,7 +67,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Chu vi: <?php echo $chu_vi?></label> <br>
+                                <label for="">Chu vi: <?php echo $chu_vi?></label> </br>
                                 <label for="">Diện tích: <?php echo $dien_tich?></label>
                             </div>
                             <div class="form-group text-center">
