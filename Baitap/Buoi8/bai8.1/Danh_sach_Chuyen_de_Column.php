@@ -58,7 +58,8 @@
                         <img class="card-img-top" src="<?php echo $value; ?>" alt="" >
                         <div class="card-body">
                             <h4 class="card-title">Khóa học: <?php echo $key; ?> </h4>
-                            <a href="Chi_tiet_Khoa_hoc.php?khoa_hoc=<?php echo $key; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
+                            <a href="Chi_tiet_Khoa_hoc
+                            .php?khoa_hoc=<?php echo $key; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
                         </div>
                     </div>
             <?php endforeach ?>
