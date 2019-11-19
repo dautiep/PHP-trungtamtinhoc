@@ -1,0 +1,7 @@
+1. Khi thực hiện một chức năng gì đó như hiển thị dữ liệu từ database lên web:
+    B1: Trong folder models, tạo một file php kết nối đến CSDL.
+    B2: Cũng trong folder này, tạo ra một model thực hiện chức năng chạy câu truy vấn để xuất 
+    dữ liệu từ database (gọi lại file B1).
+    B3: Trong folder views, tạo một file để đổ dữ liệu vừa truy xuất lên đó và hiển thị lên web. 
+    B4: tạo một file controller để gọi lại file vừa tạo folder views (gọi lại file B2, B3).
+    B5: Tạo một file php để xuất dữ liệu lên web (gọi lại file B4).
